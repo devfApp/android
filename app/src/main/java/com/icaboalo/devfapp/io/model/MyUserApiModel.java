@@ -2,6 +2,8 @@ package com.icaboalo.devfapp.io.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 /**
  * Created by icaboalo on 5/04/16.
  */
@@ -61,6 +63,15 @@ public class MyUserApiModel {
 
     @SerializedName("user_type")
     String mMyUserType;
+
+    @SerializedName("skill")
+    ArrayList<SkillApiModel> mSkillList;
+
+    @SerializedName("batch")
+    ArrayList<BatchApiModel> mBatchList;
+
+    @SerializedName("cinta")
+    ArrayList<CintaApiModel> mCintaList;
 
     public int getMyUserId() {
         return mMyUserId;
