@@ -2,9 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single"/>
 
-    <!--<item android:id="@+id/action_plan"-->
-
-        <!--android:title="Plan de accion"-->
+    <item android:id="@+id/action_plan"
+        android:title="@string/action_files"/>
         <!--android:icon="@drawable/action_plan_icon"-->
         <!--/>-->
 

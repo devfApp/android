@@ -16,18 +16,19 @@ import java.util.ArrayList;
 /**
  * Created by icaboalo on 6/04/16.
  */
-public class FIleRecyclerAdapter extends RecyclerView.Adapter<FIleRecyclerAdapter.FileViewHolder> {
+public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapter.FileViewHolder> {
 
     Context mContext;
     LayoutInflater mInflater;
     ArrayList<SharedFileApiModel> mFileList;
     LinearLayoutManager mLinearLayoutManager;
-    RecyclerView.Adapter mSkillRecyclerAdapter;
+    SkillRecyclerAdapter mSkillRecyclerAdapter;
 
-    public FIleRecyclerAdapter(Context context, ArrayList<SharedFileApiModel> fileList, RecyclerView.Adapter skillRecyclerAdapter, LinearLayoutManager linearLayoutManager) {
+    public FileRecyclerAdapter(Context context, ArrayList<SharedFileApiModel> fileList, SkillRecyclerAdapter skillRecyclerAdapter, LinearLayoutManager linearLayoutManager) {
         mContext = context;
         mFileList = fileList;
         mSkillRecyclerAdapter = skillRecyclerAdapter;
+        mLinearLayoutManager = linearLayoutManager;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -71,7 +72,7 @@ public class FIleRecyclerAdapter extends RecyclerView.Adapter<FIleRecyclerAdapte
             mLink.setText(link);
         }
 
-        public void setSkillRecycler(RecyclerView.Adapter skillRecyclerAdapter, LinearLayoutManager linearLayoutManager) {
+        public void setSkillRecycler(SkillRecyclerAdapter skillRecyclerAdapter, LinearLayoutManager linearLayoutManager) {
             mSkillRecycler.setAdapter(skillRecyclerAdapter);
             mSkillRecycler.setLayoutManager(linearLayoutManager);
         }

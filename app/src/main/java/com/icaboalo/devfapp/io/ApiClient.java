@@ -2,6 +2,7 @@ package com.icaboalo.devfapp.io;
 
 import com.icaboalo.devfapp.io.constant.Endpoints;
 import com.icaboalo.devfapp.io.model.MyUserApiModel;
+import com.icaboalo.devfapp.io.model.SharedFileApiModel;
 import com.icaboalo.devfapp.io.model.SkillApiModel;
 
 import java.util.ArrayList;
@@ -42,17 +43,7 @@ public class ApiClient {
 
 //    @GET SINGLE USER
     public static void getMyUser(String token, String userId, Callback<MyUserApiModel> myUserApiResponse){
-        getApiService().getMyUser(token, userId, new Callback<MyUserApiModel>() {
-            @Override
-            public void onResponse(Call<MyUserApiModel> call, Response<MyUserApiModel> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<MyUserApiModel> call, Throwable t) {
-
-            }
-        });
+        getApiService().getMyUser(token, userId, myUserApiResponse);
     }
 
 
@@ -73,7 +64,11 @@ public class ApiClient {
     }
 
 
-    /*---------EVENT---------*/
+    /*---------FILE---------*/
+//    @GET LIST OF FILES
+    public static void getFileList(String token, Callback<ArrayList<SharedFileApiModel>> fileApiResponse){
+        getApiService().getFileList(token, fileApiResponse);
+    }
 
 
 }
