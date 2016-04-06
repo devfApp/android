@@ -1,5 +1,7 @@
 package com.icaboalo.devfapp.io.constant;
 
+import com.icaboalo.devfapp.io.ApiClient;
+
 /**
  * Created by icaboalo on 4/04/16.
  */
