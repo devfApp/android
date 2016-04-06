@@ -6,7 +6,9 @@ import com.icaboalo.devfapp.io.model.SkillApiModel;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -40,7 +42,17 @@ public class ApiClient {
 
 //    @GET SINGLE USER
     public static void getMyUser(String token, String userId, Callback<MyUserApiModel> myUserApiResponse){
-        getApiService().getMyUser(token, userId, myUserApiResponse);
+        getApiService().getMyUser(token, userId, new Callback<MyUserApiModel>() {
+            @Override
+            public void onResponse(Call<MyUserApiModel> call, Response<MyUserApiModel> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<MyUserApiModel> call, Throwable t) {
+
+            }
+        });
     }
 
 
