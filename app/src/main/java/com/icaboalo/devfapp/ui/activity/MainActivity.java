@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.icaboalo.devfapp.R;
+import com.icaboalo.devfapp.ui.fragment.FileListFragment;
 import com.icaboalo.devfapp.util.VUtil;
 
 import butterknife.Bind;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
-        VUtil.replaceFragment(R.layout.activity_main, getSupportFragmentManager(), new Fragment());
+        VUtil.replaceFragment(R.id.container, getSupportFragmentManager(), new FileListFragment());
         navigationViewClick();
     }
 
@@ -46,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 Fragment nFragment = null;
                 switch (item.getItemId()){
                     case 0:
-                        nFragment = null;
+                        nFragment = new FileListFragment();
                         break;
                 }
-                VUtil.replaceFragment(R.layout.activity_main, getSupportFragmentManager(), new Fragment());
+                VUtil.replaceFragment(R.id.container, getSupportFragmentManager(), nFragment);
                 mDrawerLayout.closeDrawers();
                 return false;
             }
