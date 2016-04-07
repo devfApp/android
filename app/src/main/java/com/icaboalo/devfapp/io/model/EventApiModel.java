@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class EventApiModel {
 
-    public EventApiModel(String eventTitle, String eventDescription, String eventPlace, Date eventDate, String eventLink, int addedBy, ArrayList<SkillApiModel> skillList) {
+    public EventApiModel(String eventTitle, String eventDescription, String eventPlace, String eventDate, String eventLink, int addedBy, ArrayList<SkillApiModel> skillList) {
         mEventTitle = eventTitle;
         mEventDescription = eventDescription;
         mEventPlace = eventPlace;

@@ -73,7 +73,7 @@ public interface ApiService {
     void createEvent(@Header("Authorization") String token, @Body EventApiModel file, Callback<EventApiModel> eventApiResponse);
 
     @GET(Endpoints.PATH_EVENT)
-    void getEventList(@Header("Authorization") String token, Callback<ArrayList<EventApiModel>> eventApiResponse);
+    Call<ArrayList<EventApiModel>> getEventList(@Header("Authorization") String token);
 
     @GET(Endpoints.PATH_EVENT + Endpoints.PATH_ID)
     void getEvent(@Header("Authorization") String token, @Path("id") String eventId, Callback<EventApiModel> eventApiResponse);
