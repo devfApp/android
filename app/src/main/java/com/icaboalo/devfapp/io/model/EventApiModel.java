@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class EventApiModel {
 
-    public EventApiModel(String eventTitle, String eventDescription, String eventPlace, Date eventDate, String eventLink, int addedBy, ArrayList<SkillApiModel> skillList) {
+    public EventApiModel(String eventTitle, String eventDescription, String eventPlace, String eventDate, String eventLink, int addedBy, ArrayList<SkillApiModel> skillList) {
         mEventTitle = eventTitle;
         mEventDescription = eventDescription;
         mEventPlace = eventPlace;
@@ -33,7 +33,7 @@ public class EventApiModel {
     String mEventPlace;
 
     @SerializedName("event_date")
-    Date mEventDate;
+    String mEventDate;
 
     @SerializedName("event_link")
     String mEventLink;
@@ -63,7 +63,7 @@ public class EventApiModel {
         return mEventPlace;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return mEventDate;
     }
 

@@ -24,14 +24,12 @@ public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapte
     Context mContext;
     LayoutInflater mInflater;
     ArrayList<SharedFileApiModel> mFileList;
-    GridLayoutManager mGridLayoutManager;
     SkillRecyclerAdapter mSkillRecyclerAdapter;
 
 
     public FileRecyclerAdapter(Context context, ArrayList<SharedFileApiModel> fileList) {
         mContext = context;
         mFileList = fileList;
-        mGridLayoutManager = new GridLayoutManager(context, 5);
         mInflater = LayoutInflater.from(context);
     }
 
