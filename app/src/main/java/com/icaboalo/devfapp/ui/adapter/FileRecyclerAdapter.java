@@ -1,8 +1,10 @@
 package com.icaboalo.devfapp.ui.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import com.icaboalo.devfapp.R;
 import com.icaboalo.devfapp.io.model.SharedFileApiModel;
+import com.icaboalo.devfapp.io.model.SkillApiModel;
 
 import java.util.ArrayList;
 
@@ -21,14 +24,14 @@ public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapte
     Context mContext;
     LayoutInflater mInflater;
     ArrayList<SharedFileApiModel> mFileList;
-    LinearLayoutManager mLinearLayoutManager;
+    GridLayoutManager mGridLayoutManager;
     SkillRecyclerAdapter mSkillRecyclerAdapter;
 
-    public FileRecyclerAdapter(Context context, ArrayList<SharedFileApiModel> fileList, SkillRecyclerAdapter skillRecyclerAdapter, LinearLayoutManager linearLayoutManager) {
+
+    public FileRecyclerAdapter(Context context, ArrayList<SharedFileApiModel> fileList) {
         mContext = context;
         mFileList = fileList;
-        mSkillRecyclerAdapter = skillRecyclerAdapter;
-        mLinearLayoutManager = linearLayoutManager;
+        mGridLayoutManager = new GridLayoutManager(context, 5);
         mInflater = LayoutInflater.from(context);
     }
 
@@ -44,7 +47,11 @@ public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapte
         SharedFileApiModel file = mFileList.get(position);
         holder.setTitle(file.getFileTitle());
         holder.setLink(file.getFileLink());
-        holder.setSkillRecycler(mSkillRecyclerAdapter, mLinearLayoutManager);
+
+
+        LayoutManager layoutManager = new CustomLinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+        mSkillRecyclerAdapter = new SkillRecyclerAdapter(mContext, file.getSkillList());
+        holder.setSkillRecycler(mSkillRecyclerAdapter, layoutManager);
     }
 
     @Override
@@ -72,9 +79,9 @@ public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapte
             mLink.setText(link);
         }
 
-        public void setSkillRecycler(SkillRecyclerAdapter skillRecyclerAdapter, LinearLayoutManager linearLayoutManager) {
+        public void setSkillRecycler(SkillRecyclerAdapter skillRecyclerAdapter, LayoutManager skillLayoutManager) {
             mSkillRecycler.setAdapter(skillRecyclerAdapter);
-            mSkillRecycler.setLayoutManager(linearLayoutManager);
+            mSkillRecycler.setLayoutManager(skillLayoutManager);
         }
     }
 }

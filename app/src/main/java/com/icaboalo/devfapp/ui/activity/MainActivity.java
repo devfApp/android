@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
-        VUtil.replaceFragment(R.id.container, getSupportFragmentManager(), new FileListFragment());
+        replaceFragment(new FileListFragment());
         navigationViewClick();
     }
 
@@ -45,15 +46,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 Fragment nFragment = null;
-                switch (item.getItemId()){
-                    case 0:
+                switch (item.getItemId()) {
+                    case R.id.files:
                         nFragment = new FileListFragment();
                         break;
                 }
-                VUtil.replaceFragment(R.id.container, getSupportFragmentManager(), nFragment);
+                replaceFragment(nFragment);
                 mDrawerLayout.closeDrawers();
                 return false;
             }
         });
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
     }
 }

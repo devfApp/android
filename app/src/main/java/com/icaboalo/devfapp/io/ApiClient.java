@@ -66,8 +66,8 @@ public class ApiClient {
 
     /*---------FILE---------*/
 //    @GET LIST OF FILES
-    public static void getFileList(String token, Callback<ArrayList<SharedFileApiModel>> fileApiResponse){
-        getApiService().getFileList(token, fileApiResponse);
+    public static void getFileList(String token){
+        getApiService().getFileList(token);
     }
 
 
