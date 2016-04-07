@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.icaboalo.devfapp.R;
+import com.icaboalo.devfapp.ui.fragment.ChallengeListFragment;
 import com.icaboalo.devfapp.ui.fragment.EventListFragment;
 import com.icaboalo.devfapp.ui.fragment.FileListFragment;
 import com.icaboalo.devfapp.util.VUtil;
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.events:
                         nFragment = new EventListFragment();
+                        break;
+                    case R.id.challenges:
+                        nFragment = new ChallengeListFragment();
                         break;
                 }
                 replaceFragment(nFragment);
