@@ -12,12 +12,10 @@ import android.view.ViewGroup;
 
 import com.icaboalo.devfapp.R;
 import com.icaboalo.devfapp.io.ApiClient;
-import com.icaboalo.devfapp.io.ApiService;
 import com.icaboalo.devfapp.io.model.MyUserApiModel;
 import com.icaboalo.devfapp.io.model.SharedFileApiModel;
 import com.icaboalo.devfapp.io.model.SkillApiModel;
 import com.icaboalo.devfapp.ui.adapter.FileRecyclerAdapter;
-import com.icaboalo.devfapp.ui.adapter.SkillRecyclerAdapter;
 
 import java.util.ArrayList;
 
@@ -33,7 +31,7 @@ import retrofit2.Response;
  */
 public class FileListFragment extends Fragment {
 
-    @Bind(R.id.file_list)
+    @Bind(R.id.recycler_view)
     RecyclerView mFileRecycler;
 
     FileRecyclerAdapter mFileRecyclerAdapter;
@@ -41,7 +39,7 @@ public class FileListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_file_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
         return view;
     }
 

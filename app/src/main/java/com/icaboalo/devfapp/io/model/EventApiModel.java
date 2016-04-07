@@ -33,7 +33,7 @@ public class EventApiModel {
     String mEventPlace;
 
     @SerializedName("event_date")
-    Date mEventDate;
+    String mEventDate;
 
     @SerializedName("event_link")
     String mEventLink;
@@ -63,7 +63,7 @@ public class EventApiModel {
         return mEventPlace;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return mEventDate;
     }
 

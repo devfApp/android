@@ -7,8 +7,8 @@
         <!--android:icon="@drawable/action_plan_icon"-->
         <!--/>-->
 
-    <!--<item android:id="@+id/analysis"-->
-        <!--android:title="Analisis"-->
+    <item android:id="@+id/events"
+        android:title="@string/action_events"/>
         <!--android:icon="@drawable/analysis_icon"/>-->
 
     <!--<item android:id="@+id/activities"-->
