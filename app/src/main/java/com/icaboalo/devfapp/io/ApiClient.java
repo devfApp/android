@@ -2,11 +2,14 @@ package com.icaboalo.devfapp.io;
 
 import com.icaboalo.devfapp.io.constant.Endpoints;
 import com.icaboalo.devfapp.io.model.MyUserApiModel;
+import com.icaboalo.devfapp.io.model.SharedFileApiModel;
 import com.icaboalo.devfapp.io.model.SkillApiModel;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -61,7 +64,11 @@ public class ApiClient {
     }
 
 
-    /*---------EVENT---------*/
+    /*---------FILE---------*/
+//    @GET LIST OF FILES
+    public static void getFileList(String token){
+        getApiService().getFileList(token);
+    }
 
 
 }

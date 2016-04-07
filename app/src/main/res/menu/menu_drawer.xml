@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"/>
+
+    <item android:id="@+id/files"
+        android:title="@string/action_files"/>
+        <!--android:icon="@drawable/action_plan_icon"-->
+        <!--/>-->
+
+    <!--<item android:id="@+id/analysis"-->
+        <!--android:title="Analisis"-->
+        <!--android:icon="@drawable/analysis_icon"/>-->
+
+    <!--<item android:id="@+id/activities"-->
+        <!--android:title="Actividades"-->
+        <!--android:icon="@drawable/activities_icon"/>-->
+
+    <!--<item android:id="@+id/emergency"-->
+        <!--android:title="Llamada de emergencia"-->
+        <!--android:icon="@drawable/emergency_icon"/>-->
+
+
+</menu>
