@@ -12,6 +12,7 @@ import com.icaboalo.devfapp.io.model.SkillApiModel;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -58,7 +59,7 @@ public interface ApiService {
     void createFile(@Header("Authorization") String token, @Body SharedFileApiModel file, Callback<SharedFileApiModel> fileApiResponse);
 
     @GET(Endpoints.PATH_FILE)
-    void getFileList(@Header("Authorization") String token, Callback<ArrayList<SharedFileApiModel>> fileApiResponse);
+    Call<ArrayList<SharedFileApiModel>> getFileList(@Header("Authorization") String token);
 
     @GET(Endpoints.PATH_FILE + Endpoints.PATH_ID)
     void getFile(@Header("Authorization") String token, @Path("id") String fileId, Callback<SharedFileApiModel> fileApiResponse);
