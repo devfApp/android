@@ -98,7 +98,7 @@ public interface ApiService {
     void createChallenge(@Header("Authorization") String token, @Body ChallengeApiModel challenge, Callback<ChallengeApiModel> challengeApiResponse);
 
     @GET(Endpoints.PATH_CHALLENGE)
-    void getChallengeList(@Header("Authorization") String token, Callback<ArrayList<ChallengeApiModel>> challengeApiResponse);
+    Call<ArrayList<ChallengeApiModel>> getChallengeList(@Header("Authorization") String token);
 
     @GET(Endpoints.PATH_CHALLENGE + Endpoints.PATH_ID)
     void getChallenge(@Header("Authorization") String token, @Path("id") String id, Callback<ChallengeApiModel> challengeApiResponse);

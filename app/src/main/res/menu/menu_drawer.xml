@@ -11,8 +11,8 @@
         android:title="@string/action_events"/>
         <!--android:icon="@drawable/analysis_icon"/>-->
 
-    <!--<item android:id="@+id/activities"-->
-        <!--android:title="Actividades"-->
+    <item android:id="@+id/challenges"
+        android:title="Challenges"/>
         <!--android:icon="@drawable/activities_icon"/>-->
 
     <!--<item android:id="@+id/emergency"-->

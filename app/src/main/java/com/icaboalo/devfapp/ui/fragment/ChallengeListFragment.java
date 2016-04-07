@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 
 import com.icaboalo.devfapp.R;
 import com.icaboalo.devfapp.io.ApiClient;
-import com.icaboalo.devfapp.io.model.EventApiModel;
-import com.icaboalo.devfapp.ui.adapter.EventRecyclerAdapter;
+import com.icaboalo.devfapp.io.model.ChallengeApiModel;
+import com.icaboalo.devfapp.ui.adapter.ChallengeRecyclerAdapter;
 
 import java.util.ArrayList;
 
@@ -25,10 +25,10 @@ import retrofit2.Response;
 /**
  * Created by icaboalo on 6/04/16.
  */
-public class EventListFragment extends Fragment {
+public class ChallengeListFragment extends Fragment {
 
     @Bind(R.id.recycler_view)
-    RecyclerView mEventRecycler;
+    RecyclerView mChallengeRecycler;
 
     @Nullable
     @Override
@@ -41,7 +41,7 @@ public class EventListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        getActivity().setTitle("Events");
+        getActivity().setTitle("Challenges");
     }
 
     @Override
@@ -50,26 +50,26 @@ public class EventListFragment extends Fragment {
         retrofit("Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NTkzODg4MDIsInVzZXJuYW1lIjoiaWNhYm9hbG8iLCJ1c2VyX2lkIjoxLCJlbWFpbCI6ImljYWJvYWxvQGdtYWlsLmNvbSJ9.Ewkl8opcwiWJATGqNFVRboPmoCT0ZEylyQP904T-Vnw");
     }
 
-    void setupEventRecycler(ArrayList<EventApiModel> eventList){
-        EventRecyclerAdapter nEventRecyclerAdapter = new EventRecyclerAdapter(getActivity(), eventList);
+    void setupChallengeRecycler(ArrayList<ChallengeApiModel> challengeList){
+        ChallengeRecyclerAdapter nChallengeRecyclerAdapter = new ChallengeRecyclerAdapter(getActivity(), challengeList);
         LinearLayoutManager nLinearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        mEventRecycler.setAdapter(nEventRecyclerAdapter);
-        mEventRecycler.setLayoutManager(nLinearLayoutManager);
+        mChallengeRecycler.setAdapter(nChallengeRecyclerAdapter);
+        mChallengeRecycler.setLayoutManager(nLinearLayoutManager);
     }
 
     void retrofit(String token){
-        Call<ArrayList<EventApiModel>> call = ApiClient.getApiService().getEventList(token);
-        call.enqueue(new Callback<ArrayList<EventApiModel>>() {
+        Call<ArrayList<ChallengeApiModel>> call = ApiClient.getApiService().getChallengeList(token);
+        call.enqueue(new Callback<ArrayList<ChallengeApiModel>>() {
             @Override
-            public void onResponse(Call<ArrayList<EventApiModel>> call, Response<ArrayList<EventApiModel>> response) {
+            public void onResponse(Call<ArrayList<ChallengeApiModel>> call, Response<ArrayList<ChallengeApiModel>> response) {
                 if (response.isSuccessful()){
-                    ArrayList<EventApiModel> eventList = response.body();
-                    setupEventRecycler(eventList);
+                    ArrayList<ChallengeApiModel> nChallengeList = response.body();
+                    setupChallengeRecycler(nChallengeList);
                 }
             }
 
             @Override
-            public void onFailure(Call<ArrayList<EventApiModel>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<ChallengeApiModel>> call, Throwable t) {
 
             }
         });

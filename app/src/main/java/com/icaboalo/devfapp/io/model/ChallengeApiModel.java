@@ -11,7 +11,7 @@ import java.util.Date;
 public class ChallengeApiModel {
 
 //    Constructor for creating a new challenge
-    public ChallengeApiModel(String challengeTitle, String challengeDescription, String challengeDemoLink, Date challengeDate, int senseiId, int batchId, ArrayList<AnswerAPiModel> answerList) {
+    public ChallengeApiModel(String challengeTitle, String challengeDescription, String challengeDemoLink, String challengeDate, int senseiId, int batchId, ArrayList<AnswerAPiModel> answerList) {
         mChallengeTitle = challengeTitle;
         mChallengeDescription = challengeDescription;
         mChallengeDemoLink = challengeDemoLink;
@@ -34,7 +34,7 @@ public class ChallengeApiModel {
     String mChallengeDemoLink;
 
     @SerializedName("date")
-    Date mChallengeDate;
+    String mChallengeDate;
 
     @SerializedName("sensei")
     MyUserApiModel mSensei;
@@ -67,7 +67,7 @@ public class ChallengeApiModel {
         return mChallengeDemoLink;
     }
 
-    public Date getChallengeDate() {
+    public String getChallengeDate() {
         return mChallengeDate;
     }
 
