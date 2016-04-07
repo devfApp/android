@@ -47,6 +47,7 @@ public class FileListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        getActivity().setTitle("Shared Files");
     }
 
     @Override

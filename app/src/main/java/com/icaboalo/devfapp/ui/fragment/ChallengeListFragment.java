@@ -41,6 +41,7 @@ public class ChallengeListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        getActivity().setTitle("Challenges");
     }
 
     @Override
