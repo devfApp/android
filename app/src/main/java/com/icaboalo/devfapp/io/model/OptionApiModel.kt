@@ -5,15 +5,13 @@ package com.icaboalo.devfapp.io.model
  */
 class OptionApiModel{
 
-    constructor(name: String?, image: String?, itemsCount: Int?) {
+    constructor(name: String?, image: Int?) {
         this.name = name
         this.image = image
-        this.itemsCount = itemsCount
     }
 
     var name: String? = null
 
-    var image: String? = null
+    var image: Int? = null
 
-    var itemsCount: Int? = null
 }

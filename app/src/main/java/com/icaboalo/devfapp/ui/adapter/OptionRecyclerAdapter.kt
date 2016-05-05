@@ -55,15 +55,16 @@ class OptionRecyclerAdapter: RecyclerView.Adapter<OptionRecyclerAdapter.OptionVi
             nameText = itemView.findViewById(R.id.text_name) as TextView
             optionImage = itemView.findViewById(R.id.image_option) as ImageView
             this.viewHolderClickListener = viewHolderClickListener
+            itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View) {
             viewHolderClickListener.onClick(v, adapterPosition)
         }
 
-        fun setImage(url: String){
-            if (!url.isEmpty()){
-                Picasso.with(context).load(url).into(optionImage)
+        fun setImage(image: Int){
+            if (image != 0){
+                Picasso.with(context).load(image).config(android.graphics.Bitmap.Config.RGB_565).noFade().into(optionImage)
             }
         }
     }
