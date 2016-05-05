@@ -1,5 +1,6 @@
 package com.icaboalo.devfapp.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -43,7 +44,8 @@ class MainActivity : AppCompatActivity() {
     fun setupRecycler(optionsList: ArrayList<OptionApiModel>){
         optionRecyclerAdapter = OptionRecyclerAdapter(this@MainActivity, optionsList,  object: OnViewHolderClick {
             override fun onClick(v: View, position: Int) {
-                Toast.makeText(this@MainActivity, optionsList[position].name, Toast.LENGTH_SHORT).show()
+                val goToCategory = Intent(this@MainActivity, CategoryActivity::class.java)
+                startActivity(goToCategory)
             }
         })
         val gridLayout = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
